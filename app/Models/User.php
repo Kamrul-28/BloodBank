@@ -12,6 +12,16 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function donor()
+    {
+        return $this->hasOne(Donor::class);
+    }
+
+    public function patient()
+    {
+        return $this->hasOne(Patients::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +31,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
