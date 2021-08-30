@@ -16,6 +16,12 @@ class DonorController extends Controller
         return view('site.pages.donor');
     }
 
+
+    public function donors()
+    {
+        return view('admin.pages.donor');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
