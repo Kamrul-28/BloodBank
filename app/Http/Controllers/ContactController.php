@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -23,7 +24,10 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $message = Contact::all();
+
+        return view('admin.pages.message.contact',compact('message'));
+
     }
 
     /**
@@ -34,7 +38,26 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $contact = new Contact();
+       
+       $contact->name=request('name');
+       $contact->contact=request('contact');
+       $contact->email=request('email');
+       $contact->messege=request('message');
+       $res=$contact->save();
+
+       if($res=='true')
+       {                
+           return redirect('contact')->with('success','Messege Successfully  Sent!');
+           
+
+       }else{
+
+           return redirect()->back()->with('danger','Something went wrong');
+
+       }
+
+
     }
 
     /**
@@ -79,6 +102,18 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Contact::find($id);      
+        
+        if($data)
+            {  
+                $data->delete();             
+                return redirect()->back()->with('success','Message Deleted');
+                
+
+            }else{
+
+                return redirect()->back()->with('danger','Something went wrong');
+
+            }
     }
 }

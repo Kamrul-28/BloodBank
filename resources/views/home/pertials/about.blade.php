@@ -54,21 +54,11 @@
            <h2>Team Members</h2>
            <ul class="nospace clear">
              <li class="one_quarter first">
-               <figure class="team-member"><img src="images/demo/team-member.gif" alt="">
+               <figure class="team-member"><img src="admin/images/kamrul.jpg" alt="">
                  <figcaption>
                    <p class="team-name">Md.Kamrul Hasan</p>
                    <p class="team-title">Student Id:170228</p>
                    <p class="team-description">Computer Science and Engineering <br> Discipline Khulna University <br> Khulna</p>
-                   <p class="read-more"><a href="#">Read More &raquo;</a></p>
-                 </figcaption>
-               </figure>
-             </li>
-             <li class="one_quarter">
-               <figure class="team-member"><img src="images/demo/team-member.gif" alt="">
-                 <figcaption>
-                   <p class="team-name">Md.Ashiqur Rahman</p>
-                   <p class="team-title">Student Id:170238</p>
-                   <p class="team-description">Computer Science and Engineering <br> Discipline Khulna University </p>
                    <p class="read-more"><a href="#">Read More &raquo;</a></p>
                  </figcaption>
                </figure>

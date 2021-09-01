@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-
-
-
  
 
 Route::get('/', [MainController::class, 'index'])->name('homepage');
@@ -26,6 +22,8 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/donor', [DonorController::class, 'index'])->name('donor');
 Route::get('/manage-blood', [ManageController::class, 'index'])->name('manage-blood');
+
+Route::post('/contactUs', [ContactController::class, 'store'])->name('contactUs');
 
 Auth::routes();
 
@@ -52,6 +50,13 @@ Route::post('/storeDonation', [DonationController::class, 'store'])->name('store
 Route::get('/editDonation/{id}', [DonationController::class, 'edit'])->name('editDonation');
 Route::get('/deleteDonation/{id}', [DonationController::class, 'destroy'])->name('deleteDonation');
 Route::post('/updateDonation/{id}', [DonationController::class, 'update'])->name('updateDonation');
+
+
+Route::get('/message-contact', [ContactController::class, 'create'])->name('message-contact');
+Route::get('/deleteMessage/{id}', [ContactController::class, 'destroy'])->name('deleteMessage');
+
+Route::get('/blood-request', [DonationController::class, 'index'])->name('blood-request');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
