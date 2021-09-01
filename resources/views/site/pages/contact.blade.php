@@ -19,24 +19,24 @@
           <form action="{{route('contactUs')}}" method="post">
             @csrf
             <div class="form-input clear">
-              <label class="one_half first" for="author">Name<span class="required">*</span><br>
-                <input type="text" name="name" id="name" size="22">
+              <label class="one_half first my-2" for="author">Name<span class="required">*</span><br>
+                <input type="text" name="name" id="name" size="22" style="border: 1px dotted black">
               </label>
-              <label class="one_half" for="email">Email <span class="required">*</span><br>
-                <input type="text" name="email" id="email"  size="22">
+              <label class="one_half my-2" for="email">Email <span class="required">*</span><br>
+                <input type="text" name="email" id="email"  size="22" style="border: 1px dotted black">
               </label>
             </div>
             <div class="form-input clear">
-              <label class="one_half first" for="contact">Contact No<span class="required">*</span><br>
-                <input type="text" name="contact" id="contact"  size="22">
+              <label class="one_half first my-2" for="contact">Contact No<span class="required">*</span><br>
+                <input type="text" name="contact" id="contact"  size="22" style="border: 1px dotted black">
               </label>
             </div>
-            <div class="form-message">
-              <textarea name="message" id="message" placeholder="Your Message" cols="25" rows="10"></textarea>
+            <div class="form-message my-2">
+              <textarea name="message" id="message" placeholder="Your Message" cols="25" rows="10" style="border: 1px dotted black"></textarea>
             </div>
-            <p>
-              <input class="btn btn-primary" type="submit" value="Submit">
-            </p>
+            
+            <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+         
           </form>
 
         </div>

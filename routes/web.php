@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BloodRequestController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
@@ -55,8 +56,12 @@ Route::post('/updateDonation/{id}', [DonationController::class, 'update'])->name
 Route::get('/message-contact', [ContactController::class, 'create'])->name('message-contact');
 Route::get('/deleteMessage/{id}', [ContactController::class, 'destroy'])->name('deleteMessage');
 
-Route::get('/blood-request', [DonationController::class, 'index'])->name('blood-request');
+Route::get('/all-requests', [BloodRequestController::class, 'index'])->name('all-requests');
+Route::post('/blood-request', [BloodRequestController::class, 'store'])->name('blood-request');
+Route::get('/deleteBloodRequest/{id}', [BloodRequestController::class, 'destroy'])->name('deleteBloodRequest');
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 

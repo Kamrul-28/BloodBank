@@ -18,7 +18,13 @@ class DonorController extends Controller
      */
     public function index()
     {
-        return view('site.pages.donor');
+
+        $data=User::join('donors','donors.user_id','=','users.id')
+        ->join('donor_infos','donor_infos.donor_id','=','donors.id')
+        ->select('donors.*','users.*','donor_infos.*')
+        ->get();
+
+        return view('site.pages.donor',compact(['data']));
     }
  
 

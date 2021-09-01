@@ -14,7 +14,8 @@ class BloodRequestController extends Controller
      */
     public function index()
     {
-        //
+        $message = BloodRequest::all();
+        return view('admin.pages.message.bloodRequests',compact('message'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BloodRequestController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,32 @@ class BloodRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bloodRequest =new BloodRequest();
+
+        $bloodRequest->name=request('name');
+        $bloodRequest->blood=request('blood');
+        $bloodRequest->no_of_bag=request('no_of_bag');
+        $bloodRequest->donation_date=request('donation_date');
+        $bloodRequest->donation_time=request('donation_time');
+        $bloodRequest->managed=request('managed');
+        $bloodRequest->location=request('location');
+        $bloodRequest->contact_no=request('contact_no');
+        $bloodRequest->relationship=request('relationship');
+        $bloodRequest->message=request('message');
+        $res=$bloodRequest->save();
+
+
+
+        if($res=='true')
+        {                
+            return redirect()->back()->with('success','Request Send Successfully !');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
     }
 
     /**
@@ -78,8 +104,19 @@ class BloodRequestController extends Controller
      * @param  \App\Models\BloodRequest  $bloodRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BloodRequest $bloodRequest)
+    public function destroy($id)
     {
-        //
+        $bloodRequest=BloodRequest::find($id);      
+        if($bloodRequest)
+            {  
+                $bloodRequest->delete();             
+                return redirect()->back()->with('success','BloodRequest Deleted');
+                
+
+            }else{
+
+                return redirect()->back()->with('danger','Something went wrong');
+
+            }
     }
 }

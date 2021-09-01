@@ -51,7 +51,7 @@
                     <div class="collapse" id="collapseMessage" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{route('message-contact')}}">Contact Messages</a>
-                            <a class="nav-link" href="{{route('blood-request')}}">Blood Requests</a>
+                            <a class="nav-link" href="{{route('all-requests')}}">Blood Requests</a>
                         </nav>
                     </div>
                 </div>

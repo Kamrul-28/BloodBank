@@ -5,10 +5,10 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Donors</h1>
+            <h1 class="mt-4">Blood Requests</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a class="link-dark" href="{{route('dashboard')}}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Donors</li>
+                <li class="breadcrumb-item active">Requests</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
@@ -28,8 +28,14 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Email</th>
+                                <th>Blood Group</th>
                                 <th>Contact No</th>
+                                <th>Donation Date</th>
+                                <th>Donation Time</th>
+                                <th>No Of Bag</th>
+                                <th>Managed</th>
+                                <th>Location</th>
+                                <th>Relationship</th>
                                 <th>Message</th>
                                 <th>Action</th>
                             </tr>
@@ -39,12 +45,18 @@
                             @foreach($message as $values)
                             <tr>
                                 <td>{{$values->name}}</td>
-                                <td>{{$values->email}}</td>                      
-                                <td>{{$values->contact}}</td>    
-                                <td>{{$values->messege}}</td> 
+                                <td>{{$values->blood}}</td>                      
+                                <td>{{$values->contact_no}}</td>    
+                                <td>{{$values->donation_date}}</td>    
+                                <td>{{$values->donation_time}}</td>    
+                                <td>{{$values->no_of_bag}}</td>    
+                                <td>{{$values->managed}}</td>    
+                                <td>{{$values->location}}</td>    
+                                <td>{{$values->relationship}}</td>       
+                                <td>{{$values->message}}</td> 
                                 <td>
-                                        <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" class="btn btn-success">Replay</a>
-                                        <a href="{{route('deleteMessage',$values->id) }}" class="btn btn-danger" style="margin-left: 5%">Delete</a>
+                                        <a href="#" target="_blank" class="btn btn-success mb-1">Post</a>
+                                        <a href="{{route('deleteBloodRequest',$values->id) }}" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -55,4 +67,3 @@
         </div>
     </main>
 </div>
-

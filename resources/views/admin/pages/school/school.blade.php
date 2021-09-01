@@ -24,7 +24,7 @@
                     </div>
                     @endif
 
-                    <table id="datatablesSimple">
+                    <table id="datatablesSimple" style="border: 1px black">
                         <thead>
                             <tr>
                                 <th>School Name</th>
