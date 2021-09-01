@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donation;
+use App\Models\Donor;
 use Illuminate\Http\Request;
 
 class DonationController extends Controller
@@ -14,7 +15,13 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        $data=Donor::join('donations','donations.donor_id','=','donors.id')
+        ->join('donor_infos','donor_infos.donor_id','=','donors.id')
+        ->join('users','donors.user_id','=','users.id')
+        ->select('donors.*','donations.*','donor_infos.*','users.*')
+        ->get();
+       
+        return view('admin.pages.donation.donation',compact(['data']));
     }
 
     /**
@@ -24,7 +31,11 @@ class DonationController extends Controller
      */
     public function create()
     {
-        //
+        $data=Donor::join('users','donors.user_id','=','users.id')
+        ->select('donors.*','users.*')
+        ->get();
+
+        return view('admin.pages.donation.createDonation',compact(['data']));
     }
 
     /**
@@ -35,7 +46,24 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $donation=new Donation();
+
+        $donation->donor_id=request('donor_id');
+        $donation->donation_place=request('donation_place');
+        $donation->donation_date=request('donation_date');
+        $donation->description=request('description');
+        $res=$donation->save();
+
+        if($res=='true')
+        {                
+            return redirect('/all-donations')->with('success','Donation Created Successfully !');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
     }
 
     /**

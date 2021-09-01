@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
@@ -45,6 +46,12 @@ Route::get('/editSchool/{id}', [SchoolController::class, 'edit'])->name('editSch
 Route::get('/deleteSchool/{id}', [SchoolController::class, 'destroy'])->name('deleteSchool');
 Route::post('/updateSchool/{id}', [SchoolController::class, 'update'])->name('updateSchool');
 
+Route::get('/all-donations', [DonationController::class, 'index'])->name('all-donations');
+Route::get('/createDonation', [DonationController::class, 'create'])->name('createDonation');
+Route::post('/storeDonation', [DonationController::class, 'store'])->name('storeDonation');
+Route::get('/editDonation/{id}', [DonationController::class, 'edit'])->name('editDonation');
+Route::get('/deleteDonation/{id}', [DonationController::class, 'destroy'])->name('deleteDonation');
+Route::post('/updateDonation/{id}', [DonationController::class, 'update'])->name('updateDonation');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
