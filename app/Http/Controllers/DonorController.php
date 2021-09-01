@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donor;
+use App\Models\DonorInfo;
+use App\Models\School;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class DonorController extends Controller
 {
@@ -15,11 +20,18 @@ class DonorController extends Controller
     {
         return view('site.pages.donor');
     }
-
+ 
 
     public function donors()
     {
-        return view('admin.pages.donor');
+        $data=User::join('donors','donors.user_id','=','users.id')
+        ->join('donor_infos','donor_infos.donor_id','=','donors.id')
+        ->select('donors.*','users.*','donor_infos.*')
+        ->get();
+
+        $school=School::all();
+
+        return view('admin.pages.donor',compact(['school','data']));
     }
 
     /**
@@ -29,7 +41,7 @@ class DonorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.createDonor');
     }
 
     /**
@@ -40,7 +52,49 @@ class DonorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user=new User();
+
+        $user->name=request('name');
+        $user->email=request('email');
+        $user->password=Hash::make(request('password'));
+        $user->role='donor';
+        $user->save();
+
+        $school=new School();
+
+        $school->school_name=request('school');
+        $res=$school->save();
+        
+        $donor=new Donor();
+
+        $donor->school_id=$school->id;
+        $donor->user_id=$user->id;
+        $donor->blood_group=request('blood');
+        $donor->height=request('height');
+        $donor->weight=request('weight');
+        $res=$donor->save();
+
+        $donor_info=new DonorInfo();
+
+        $donor_info->donor_id=$donor->id;
+        $donor_info->date_of_birth=request('date_of_birth');
+        $donor_info->address=request('address');
+        $donor_info->contact_no=request('contact');
+        $donor_info->gender=request('gender');
+        $res=$donor_info->save();
+
+
+
+        if($res=='true')
+        {                
+            return redirect('/all-donors')->with('success','Donor Created Successfully !');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
     }
 
     /**
@@ -62,7 +116,20 @@ class DonorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=User::join('donors','donors.user_id','=','users.id')
+        ->join('donor_infos','donor_infos.donor_id','=','donors.id')
+        ->select('donors.*','users.*','donor_infos.*')
+        ->where('donors.id','=',$id)
+        ->get();
+
+
+        $school=Donor::join('schools','donors.school_id','=','schools.id')
+        ->select('donors.*','schools.*')
+        ->where('donors.id','=',$id)
+        ->get();
+
+
+        return view('admin.pages.editDonor',compact(['data','school']));
     }
 
     /**
@@ -74,7 +141,55 @@ class DonorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            $donor=Donor::find($id);
+    
+            $donor_info=DonorInfo::find($donor->id);
+            
+            $user=User::find($donor->user_id);
+
+            $school=School::find($donor->school_id);
+
+            $school->school_name=request('school');
+            $res=$school->save();
+
+
+            $user->name=request('name');
+            $user->email=request('email');
+            $user->password=Hash::make(request('password'));
+            $user->role='donor';
+            $user->save();
+
+
+
+            $donor->school_id=$school->id;
+            $donor->user_id=$user->id;
+            $donor->blood_group=request('blood');
+            $donor->height=request('height');
+            $donor->weight=request('weight');
+            $res=$donor->save();
+
+
+            $donor_info->donor_id=$donor->id;
+            $donor_info->date_of_birth=request('date_of_birth');
+            $donor_info->address=request('address');
+            $donor_info->contact_no=request('contact');
+            $donor_info->gender=request('gender');
+            $res=$donor_info->save();
+
+
+
+            if($res=='true')
+            {                
+                return redirect('/all-donors')->with('success','Donor Edited Successfully !');
+                
+
+            }else{
+
+                return redirect()->back()->with('danger','Something went wrong');
+
+            }
+
+
     }
 
     /**
@@ -85,6 +200,20 @@ class DonorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Donor::find($id);      
+        $user_id=$data->user_id;
+        $user=User::find($user_id);
+        
+        if($user)
+            {  
+                $user->delete();             
+                return redirect()->back()->with('success','Donor Deleted');
+                
+
+            }else{
+
+                return redirect()->back()->with('danger','Something went wrong');
+
+            }
     }
 }

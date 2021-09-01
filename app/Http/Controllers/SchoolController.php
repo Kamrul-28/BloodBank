@@ -14,7 +14,8 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        $data=School::all();
+        return view('admin.pages.school.school',compact(['data']));
     }
 
     /**
@@ -24,7 +25,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.school.createSchool');
     }
 
     /**
@@ -35,16 +36,34 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $school=new School();
+
+        $school->school_name=request('school_name');
+        $school->thana=request('thana');
+        $school->district=request('district');
+        $res=$school->save();
+
+
+        if($res=='true')
+        {                
+            return redirect('/all-schools')->with('success','School Created Successfully !');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\School  $school
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(School $school)
+    public function show($id)
     {
         //
     }
@@ -52,34 +71,72 @@ class SchoolController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\School  $school
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(School $school)
+    public function edit($id)
     {
-        //
+
+        $data=School::where('id','=',$id)
+        ->select('*')
+        ->get();
+
+
+        return view('admin.pages.school.editSchool',compact(['data']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\School  $school
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, School $school)
+    public function update(Request $request, $id)
     {
-        //
+
+            $school=School::find($id);
+
+            $school->school_name=request('school_name');
+            $school->thana=request('thana');
+            $school->district=request('district');
+            $res=$school->save();
+
+
+            if($res=='true')
+            {                
+                return redirect('/all-schools')->with('success','School Edited Successfully !');
+                
+
+            }else{
+
+                return redirect()->back()->with('danger','Something went wrong');
+
+            }
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\School  $school
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(School $school)
+    public function destroy($id)
     {
-        //
+        $data=School::find($id);      
+        
+        if($data)
+            {  
+                $data->delete();             
+                return redirect('/all-schools')->with('success','School Deleted');
+                
+
+            }else{
+
+                return redirect()->back()->with('danger','Something went wrong');
+
+            }
     }
 }

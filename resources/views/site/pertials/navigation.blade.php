@@ -21,7 +21,7 @@
                     </li>  
                 @if (Route::has('register'))
                     <li class="nav-item" title="Register">  
-                        <a href="{{ route('register') }}" class="nav-link text-sm underline">Become a Donor</a>
+                        <a href="{{ route('register') }}" class="nav-link text-sm underline">Register</a>
                     </li>    
                 @endif
               @endauth

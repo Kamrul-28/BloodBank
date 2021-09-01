@@ -5,15 +5,15 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Donors</h1>
+            <h1 class="mt-4">Schools</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a class="link-dark" href="{{route('dashboard')}}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Donors</li>
+                <li class="breadcrumb-item active">Schools</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
                     <div>
-                        <a href="{{route('createDonor')}}" class="btn btn-primary mb-3"> Add New Donor</a>
+                        <a href="{{route('createSchool')}}" class="btn btn-primary mb-3"> Add New School</a>
                     </div>
 
                     @if(Session::has('success'))
@@ -27,12 +27,9 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Blood Group</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                                <th>Contact No</th>
-                                <th>Next Available Date</th>
+                                <th>School Name</th>
+                                <th>District</th>
+                                <th>Thana</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -40,15 +37,12 @@
                         <tbody>
                             @foreach($data as $values)
                             <tr>
-                                <td>{{$values->name}}</td>
-                                <td>{{$values->blood_group}}</td>
-                                <td>{{$values->email}}</td>                      
-                                <td>{{$values->address}}</td>
-                                <td>{{$values->contact_no}}</td>    
-                                <td>{{$values->next_available_date}}</td> 
+                                <td>{{$values->school_name}}</td>
+                                <td>{{$values->district}}</td>
+                                <td>{{$values->thana}}</td>                       
                                 <td>
-                                        <a href="{{route('editDonor',$values->id) }}" class="btn btn-success">Edit</a>
-                                        <a href="{{route('deleteDonor',$values->id) }}" class="btn btn-danger" style="margin-left: 5%">Delete</a>
+                                        <a href="{{route('editSchool',$values->id) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{route('deleteSchool',$values->id) }}" class="btn btn-danger" style="margin-left: 5%">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
