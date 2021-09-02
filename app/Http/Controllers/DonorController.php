@@ -109,10 +109,58 @@ class DonorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('site.pages.donor.becomeAhero');
     }
+
+    public function donorReg(Request $request)
+    {
+        $user=new User();
+
+        $user->name=request('name');
+        $user->email=request('email');
+        $user->password=Hash::make(request('password'));
+        $user->role='donor';
+        $user->save();
+
+        $school=new School();
+
+        $school->school_name=request('school');
+        $res=$school->save();
+        
+        $donor=new Donor();
+
+        $donor->school_id=$school->id;
+        $donor->user_id=$user->id;
+        $donor->blood_group=request('blood');
+        $donor->height=request('height');
+        $donor->weight=request('weight');
+        $res=$donor->save();
+
+        $donor_info=new DonorInfo();
+
+        $donor_info->donor_id=$donor->id;
+        $donor_info->date_of_birth=request('date_of_birth');
+        $donor_info->address=request('address');
+        $donor_info->contact_no=request('contact');
+        $donor_info->gender=request('gender');
+        $res=$donor_info->save();
+
+
+
+        if($res=='true')
+        {                
+            return redirect('/become-a-hero')->with('success','You have Registered Successfully ! Please Login');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
+    }
+
 
     /**
      * Show the form for editing the specified resource.

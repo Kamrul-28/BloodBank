@@ -9,6 +9,7 @@ use App\Http\Controllers\DonorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManageController;
+use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\SchoolController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,8 @@ Route::get('/donor', [DonorController::class, 'index'])->name('donor');
 Route::get('/manage-blood', [ManageController::class, 'index'])->name('manage-blood');
 
 Route::post('/contactUs', [ContactController::class, 'store'])->name('contactUs');
+Route::get('/become-a-hero', [DonorController::class, 'show'])->name('become-a-hero');
+Route::post('/donorReg', [DonorController::class, 'donorReg'])->name('donorReg');
 
 Auth::routes();
 
@@ -59,9 +62,14 @@ Route::get('/deleteMessage/{id}', [ContactController::class, 'destroy'])->name('
 Route::get('/all-requests', [BloodRequestController::class, 'index'])->name('all-requests');
 Route::post('/blood-request', [BloodRequestController::class, 'store'])->name('blood-request');
 Route::get('/deleteBloodRequest/{id}', [BloodRequestController::class, 'destroy'])->name('deleteBloodRequest');
+Route::get('/posted-requests', [BloodRequestController::class, 'show'])->name('posted-requests');
+Route::get('/create-post/{id}', [BloodRequestController::class, 'createPost'])->name('create-post');
 
 
-
+Route::get('/all-patients', [PatientsController::class, 'index'])->name('all-patients');
+Route::get('/editPatient/{id}', [PatientsController::class, 'edit'])->name('editPatient');
+Route::get('/deletePatient/{id}', [PatientsController::class, 'destroy'])->name('deletePatient');
+Route::post('/updatePatient/{id}', [PatientsController::class, 'update'])->name('updatePatient');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

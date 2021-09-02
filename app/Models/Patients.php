@@ -18,4 +18,9 @@ class Patients extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public function bloodRequest()
+    {
+        return $this->hasMany(BloodRequest::class);
+    }
 }

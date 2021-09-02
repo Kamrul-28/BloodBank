@@ -55,7 +55,7 @@
                                 <td>{{$values->relationship}}</td>       
                                 <td>{{$values->message}}</td> 
                                 <td>
-                                        <a href="#" target="_blank" class="btn btn-success mb-1">Post</a>
+                                        <a href="{{route('create-post',$values->id) }}" class="btn btn-success mb-1">Post</a>
                                         <a href="{{route('deleteBloodRequest',$values->id) }}" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>

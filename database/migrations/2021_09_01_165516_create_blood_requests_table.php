@@ -15,6 +15,7 @@ class CreateBloodRequestsTable extends Migration
     {
         Schema::create('blood_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('patient_id');
             $table->string('name');
             $table->string('blood');
             $table->string('donation_date');
@@ -25,7 +26,13 @@ class CreateBloodRequestsTable extends Migration
             $table->string('location');
             $table->string('relationship');
             $table->string('message');
+            $table->boolean('is_posted')->default(false);
             $table->timestamps();
+
+            $table->foreign('patient_id')
+            ->references('id')
+            ->on('patients')
+            ->onDelete('cascade');
         });
     }
 

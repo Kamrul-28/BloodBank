@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class BloodRequest extends Model
 {
     use HasFactory;
+
+    public function patient()
+    {
+        return $this->hasOne(Patients::class);
+    }
 }

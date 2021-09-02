@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\BloodRequest;
+use App\Models\Patients;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class BloodRequestController extends Controller
 {
@@ -18,6 +21,29 @@ class BloodRequestController extends Controller
         return view('admin.pages.message.bloodRequests',compact('message'));
     }
 
+
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createPost($id)
+    {
+        $post=BloodRequest::find($id);
+        $post->is_posted=true;
+        $res=$post->save();
+
+        if($res)
+        {             
+            return redirect()->back()->with('success','Request Posted Successfully');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -36,8 +62,21 @@ class BloodRequestController extends Controller
      */
     public function store(Request $request)
     {
-        $bloodRequest =new BloodRequest();
+        $user=new User();
 
+        $user->name=request('name');
+        $user->email=request('email');
+        $user->password=Hash::make(request('password'));
+        $user->role='patient';
+        $user->save();
+
+        $patient = new Patients();
+        $patient->user_id=$user->id;
+        $patient->desises=request('desises');
+        $patient->save();
+
+        $bloodRequest =new BloodRequest();
+        $bloodRequest->patient_id=$patient->id;
         $bloodRequest->name=request('name');
         $bloodRequest->blood=request('blood');
         $bloodRequest->no_of_bag=request('no_of_bag');
@@ -54,7 +93,7 @@ class BloodRequestController extends Controller
 
         if($res=='true')
         {                
-            return redirect()->back()->with('success','Request Send Successfully !');
+            return redirect()->back()->with('success','Request Send Successfully ! You are Registered as Patient . Please Login for more information');
             
 
         }else{
@@ -72,7 +111,9 @@ class BloodRequestController extends Controller
      */
     public function show(BloodRequest $bloodRequest)
     {
-        //
+        $bloodRequest =BloodRequest::all();
+
+        return view('admin.pages.message.postedRequests',compact('bloodRequest'));
     }
 
     /**

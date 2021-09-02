@@ -61,7 +61,22 @@
                         </div>
 
                   </div>
-                  <div class="message">
+                  <div class="form-input clear py-3">
+                      <div class="one_third first" for="desises">
+                              <div class="py-3">Desises<span class="required">*</span><br></div>  
+                              <input type="text" name="desises" id="desises" size="22" style="border: 1px dotted black">
+                      </div>
+                      <div class="one_third" for="email">
+                          <div class="py-3">Email<span class="required">*</span><br></div>  
+                          <input type="text" name="email" id="email" size="22" style="border: 1px dotted black">
+                      </div>
+                      <div class="one_third" for="relationship">
+                              <div class="py-3">Password<span class="required">*</span><br></div>  
+                              <input type="password" name="password" id="password" size="22" style="border: 1px dotted black">
+                      </div>
+
+                 </div>
+                  <div class="message py-2">
                     <textarea name="message" id="message" cols="25" rows="10" style="border: 1px dotted black"></textarea>
                   </div>
                  
