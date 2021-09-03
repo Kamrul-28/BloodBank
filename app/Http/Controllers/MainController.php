@@ -16,6 +16,44 @@ class MainController extends Controller
         return view("welcome");
     }
 
+
+
+    public function available()
+    {
+        return view("site.pages.sidebar.available");
+    }
+
+    public function facts()
+    {
+        return view("site.pages.sidebar.facts");
+    }
+
+    public function eligibility()
+    {
+        return view("site.pages.sidebar.eligibility");
+    }
+
+    public function types()
+    {
+        return view("site.pages.sidebar.types");
+    }
+
+    public function neverDonated()
+    {
+        return view("site.pages.sidebar.neverDonated");
+    }
+
+    public function howDonationHelps()
+    {
+        return view("site.pages.sidebar.howDonationHelps");
+    }
+
+    public function vlunteers()
+    {
+        return view("site.pages.sidebar.vlunteers");
+    }
+
+    
     /**
      * Show the form for creating a new resource.
      *

@@ -56,7 +56,7 @@ class DonationController extends Controller
 
         if($res=='true')
         {                
-            return redirect('/all-donations')->with('success','Donation Created Successfully !');
+            return redirect('/adm/all-donations')->with('success','Donation Created Successfully !');
             
 
         }else{

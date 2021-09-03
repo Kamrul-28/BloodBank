@@ -93,7 +93,7 @@ class DonorController extends Controller
 
         if($res=='true')
         {                
-            return redirect('/all-donors')->with('success','Donor Created Successfully !');
+            return redirect('/adm/all-donors')->with('success','Donor Created Successfully !');
             
 
         }else{
@@ -151,7 +151,7 @@ class DonorController extends Controller
 
         if($res=='true')
         {                
-            return redirect('/become-a-hero')->with('success','You have Registered Successfully ! Please Login');
+            return redirect('/site/become-a-hero')->with('success','You have Registered Successfully ! Please Login');
             
 
         }else{
@@ -234,7 +234,7 @@ class DonorController extends Controller
 
             if($res=='true')
             {                
-                return redirect('/all-donors')->with('success','Donor Edited Successfully !');
+                return redirect('/adm/all-donors')->with('success','Donor Edited Successfully !');
                 
 
             }else{

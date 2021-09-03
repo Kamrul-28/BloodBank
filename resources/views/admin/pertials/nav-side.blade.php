@@ -1,3 +1,5 @@
+
+
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -43,7 +45,7 @@
                         </nav>
                     </div>
 
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePatients" aria-expanded="false" aria-controls="collapseLayouts">
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePatient" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-inbox"></i></div>
                             Patients
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -69,4 +71,4 @@
                 </div>
             </div>
         </nav>
-    </div>
+</div>

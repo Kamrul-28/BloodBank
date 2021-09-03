@@ -48,7 +48,7 @@ class ContactController extends Controller
 
        if($res=='true')
        {                
-           return redirect('contact')->with('success','Messege Successfully  Sent!');
+           return redirect('/site/contact')->with('success','Messege Successfully  Sent!');
            
 
        }else{
