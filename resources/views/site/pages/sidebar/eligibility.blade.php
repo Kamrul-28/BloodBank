@@ -7,20 +7,23 @@
           <ul class="clear">
             <li>
               <article class="clear">
-                <figure class="post-image"><img src="../images/demo/1200x400.gif" alt=""></figure>
+                <img src="../images/site/blood-7.jpeg" alt="">
                 <header>
-                  <h2 class="blog-post-title"><a href="#">Pellentesque Tempor Tellus</a></h2>
-                  <div class="blog-post-meta">
-                    <ul>
-                      <li class="blog-post-date">
-                        <time datetime="2000-04-06T08:15+00:00"><strong>Completed:</strong> 6<sup>th</sup> April 2000</time>
-                      </li>
-                      <li class="blog-post-cats"><a href="#">Category 1</a>, <a href="#">Category 2</a></li>
-                    </ul>
-                  </div>
+                  <h2 class="blog-post-title"><a href="#">Requirements by Donation Type</a></h2>
                 </header>
-                <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus. Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-                <footer class="read-more"><a href="#">Read More &raquo;</a></footer>
+                <p>Donation frequency: Every 56 days* 
+                  You must be in good health and feeling well**
+                  You must be at least 16 years old in most states
+                  You must weigh at least 110 lbs</p>
+                <p>Thank you for choosing to help save lives through blood and platelet donations. Young donors, like you, play an important role in helping to make sure that blood is available when and where it is needed most. The American Red Cross wants you to have the best possible donation experience as you begin your life-long donation journey
+                  <p>
+                  As a blood donor, you donate one pint of blood, which your body quickly replaces. As someone who is new to donating blood, we encourage you to focus on being a healthy blood donor. Here are a few things you should do to have the best possible experience:</p>
+                  Be in good general health and feeling well.
+                  Maintaining your iron level is an important part of being a healthy donor. We encourage you to learn more about iron and donating blood
+                  Be at least 17 years old in most states (16 years old with parental consent in some states).
+                  Weigh at least 110 lbs. Additional height and weight requirements apply for donors 18 years old and younger and all high school student donors.
+                  Have not donated blood in the last 56 days.
+                </p>
               </article>
             </li>
           </ul>

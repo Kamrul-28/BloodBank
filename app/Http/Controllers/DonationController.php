@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BloodRequest;
 use App\Models\Donation;
 use App\Models\Donor;
+use App\Models\Patients;
+use App\Models\User;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 
 class DonationController extends Controller
@@ -22,6 +27,56 @@ class DonationController extends Controller
         ->get();
        
         return view('admin.pages.donation.donation',compact(['data']));
+    }
+
+    public function makeADonation($id){
+
+        $patient=Patients::join('users','patients.user_id','=','users.id')
+        ->join('blood_requests','blood_requests.patient_id','=','patients.id')
+        ->select('patients.*','users.*','blood_requests.*')
+        ->where('patients.id','=',$id)
+        ->get();    
+
+        return view('site.pages.donation.makeADonation',compact('patient'));
+    }
+
+
+    public function addDonation(Request $request){
+
+        $donor=Donor::find($request->user_id);
+
+        $nextAvailableDate = new DateTime("+2 months");
+        
+        $donor->next_available_date=$nextAvailableDate->format('d-m-Y');
+        $donor->is_available=true;
+        $donor->save();
+        
+
+        $request = BloodRequest::where('patient_id','=',$request->patient_id)->first();
+
+        $request->managed=$request->managed+1;
+        $request->save();
+
+        $donation = new Donation();
+
+        $donation->donor_id=$donor->id;
+        $donation->donation_place=request('donation_place');
+        $donation->donation_date=request('donation_date');
+        $donation->description=request('description');
+        $res=$donation->save();
+        
+
+        if($res=='true')
+        {                
+            return redirect()->back()->with('success','Donation Created Successfully !');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
+        
     }
 
     /**

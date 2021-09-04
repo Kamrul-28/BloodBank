@@ -16,7 +16,7 @@ class CreateDonorInfosTable extends Migration
         Schema::create('donor_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('donor_id')->nullable();
-            $table->date('date_of_birth');
+            $table->string('date_of_birth');
             $table->string('gender');
             $table->string('address');
             $table->string('contact_no');

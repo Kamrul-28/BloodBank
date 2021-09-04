@@ -74,13 +74,18 @@
                                         <input type="text" name="weight" class="form-control" required style="border: 1px dotted black">
                 
                                     </div>
-                                    <div class="col-md-4">
-                                        <h6 class="">Gender</h6>
-                                        <input type="radio" name="gender"  value="male" required>Male
-                                        <input type="radio" name="gender"  value="female" required>Female
-                                        <input type="radio" name="gender"  value="others" required>Others
+                                    <div class="col-md-8">
+
+                                        <h6 class="mt-4">Gender</h6>                                
+                                        <input type="radio" name="gender" value="male" required>
+                                        <label for="gender">Male</label> 
+                                        <input type="radio" name="gender"  value="female" required>
+                                        <label for="gender">Female</label> 
+                                        <input type="radio" name="gender"  value="others" required>
+                                        <label for="gender">Others</label> 
                 
                                     </div>
+                                    
                             </div>
 
                     </div>

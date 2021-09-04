@@ -26,7 +26,14 @@
             <div>Address: {{$item->address}} </div>
             <div>Gender: {{$item->gender}} </div>
             <div>Weight: {{$item->weight}} </div>
-            <div>Status:<strong class="text-success"> Available </strong> </div>
+            <div>Status:
+            @if ($item->next_available_date != null)
+               <strong class="text-danger"> Not Available</strong>
+            @else
+               <strong class="text-success"> Available </strong>
+            @endif 
+          </div>
+          
           </article>
         </div>
         @endforeach

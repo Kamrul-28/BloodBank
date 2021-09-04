@@ -14,12 +14,15 @@ use App\Http\Controllers\SchoolController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', [MainController::class, 'index'])->name('homepage');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
 Route::prefix('site')->group(function(){
-      
+
       Route::get('/about', [AboutController::class, 'index'])->name('about');
       Route::get('/contact', [ContactController::class, 'index'])->name('contact');
       Route::get('/donor', [DonorController::class, 'index'])->name('donor');
@@ -32,7 +35,8 @@ Route::prefix('site')->group(function(){
       Route::post('/blood-request', [BloodRequestController::class, 'store'])->name('blood-request');
 
       Route::get('/posted-requests', [BloodRequestController::class, 'show'])->name('posted-requests');
-
+      Route::get('/make-a-donation/{id}', [DonationController::class, 'makeADonation'])->name('make-a-donation');
+      Route::post('/add-donation', [DonationController::class, 'AddDonation'])->name('add-donation');
       // sidebar routes
       Route::get('/eligibility', [MainController::class, 'eligibility'])->name('eligibility');    
       Route::get('/available', [MainController::class, 'available'])->name('available');
@@ -83,7 +87,6 @@ Route::group(['prefix'=>'adm','middleware'=>'auth'],function(){
       Route::get('/deletePatient/{id}', [PatientsController::class, 'destroy'])->name('deletePatient');
       Route::post('/updatePatient/{id}', [PatientsController::class, 'update'])->name('updatePatient');
 
-      Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
 

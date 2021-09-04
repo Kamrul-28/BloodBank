@@ -32,6 +32,7 @@
                                 <th>Email</th>
                                 <th>Address</th>
                                 <th>Contact No</th>
+                                <th>Status</th>
                                 <th>Next Available Date</th>
                                 <th>Action</th>
                             </tr>
@@ -44,8 +45,22 @@
                                 <td>{{$values->blood_group}}</td>
                                 <td>{{$values->email}}</td>                      
                                 <td>{{$values->address}}</td>
-                                <td>{{$values->contact_no}}</td>    
-                                <td>{{$values->next_available_date}}</td> 
+                                <td>{{$values->contact_no}}</td>  
+                                <td>
+                                    @if ($values->next_available_date != null)
+                                        <strong class="text-danger"> Not Available</strong>
+                                    @else
+                                        <strong class="text-success"> Available </strong>
+                                    @endif 
+                                </td>  
+                                <td>
+                                    @if ($values->next_available_date != null)
+                                        {{$values->next_available_date}}
+                                    @else
+                                         Available Now
+                                    @endif 
+                                    
+                                </td> 
                                 <td>
                                         <a href="{{route('editDonor',$values->id) }}" class="btn btn-success">Edit</a>
                                         <a href="{{route('deleteDonor',$values->id) }}" class="btn btn-danger" style="margin-left: 5%">Delete</a>

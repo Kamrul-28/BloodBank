@@ -11,6 +11,24 @@
                     <li><a href="{{route('donor')}}" class="nav-link title="About Us">Donors</a></li>
                     <li><a href="{{route('contact')}}" class="nav-link title="About Us">Contact</a></li>
                     <li><a href="{{route('about')}}" class="nav-link title="About Us">About Us</a></li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i>  {{ Auth::user()->name }}</a>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        
+                          <li>
+                              <a class="dropdown-item" href="{{ route('logout') }}"
+                              onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                               {{ __('Logout') }}
+                           </a>
+          
+                           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                               @csrf
+                           </form>
+                          </li>
+                      </ul>
+
+                  </li>
                 @else
                     <li><a href="{{route('homepage')}}" title="Homepage">Homepage</a></li>
                     <li><a href="{{route('posted-requests')}}" title="Homepage">All Requests</a></li>

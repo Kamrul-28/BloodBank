@@ -1,8 +1,7 @@
 <div id="homepage" class="clear">
      <div class="tab-wrapper clear">
        <ul class="tab-nav clear">
-         <li><a href="#tab-1">About Us</a></li>
-         <li><a href="#tab-2">Services</a></li>
+         <li><a href="#tab-1">About Blood Donation</a></li>
          <li><a href="#tab-3">Our Team</a></li>
        </ul>
        <div class="tab-container">
@@ -16,40 +15,8 @@
              <a href="#" class="button large gradient orange">Read More &raquo;</a></div>
            <div class="two_fifth"><a href="#"><img src="images/site/blood-3.jpg" alt=""></a></div>
          </div>
+        
          <!-- ## TAB 2 ## -->
-         <div id="tab-2" class="tab-content clear">
-           <ul class="nospace clear">
-             <li class="one_quarter first">
-               <article>
-                 <h1>Headline Text</h1>
-                 <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-                 <footer><a href="#">Read More &raquo;</a></footer>
-               </article>
-             </li>
-             <li class="one_quarter">
-               <article>
-                 <h1>Headline Text</h1>
-                 <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-                 <footer><a href="#">Read More &raquo;</a></footer>
-               </article>
-             </li>
-             <li class="one_quarter">
-               <article>
-                 <h1>Headline Text</h1>
-                 <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-                 <footer><a href="#">Read More &raquo;</a></footer>
-               </article>
-             </li>
-             <li class="one_quarter">
-               <article>
-                 <h1>Headline Text</h1>
-                 <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-                 <footer><a href="#">Read More &raquo;</a></footer>
-               </article>
-             </li>
-           </ul>
-         </div>
-         <!-- ## TAB 3 ## -->
          <section>
             <div id="tab-3" class="tab-content clear">
               <h2>Team Members</h2>

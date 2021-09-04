@@ -20,8 +20,8 @@ class CreateDonorsTable extends Migration
             $table->string('blood_group');
             $table->decimal('height');
             $table->decimal('weight');
-            $table->date('next_available_date')->nullable();
-            $table->boolean('is_available')->nullable();
+            $table->string('next_available_date')->nullable();
+            $table->boolean('is_available')->default(false);
             $table->timestamps();
 
             $table->foreign('school_id')

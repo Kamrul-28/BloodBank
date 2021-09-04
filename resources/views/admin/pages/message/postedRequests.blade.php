@@ -7,6 +7,9 @@
         <div class="row">
         @foreach ($bloodRequest as $post)
                 @if ($post->is_posted == true)
+
+                        @if ($post->managed != $post->no_of_bag)
+          
                                 <div class="card col-md-6 mb-5">
                                         <article class="clear">
                                                 <header>
@@ -19,14 +22,20 @@
                                                                 <div >Donation Time: {{$post->donation_time}}</div>
                                                                 <div class="py-3">
                                                                         {{$post->name}} (Male, aged 55) needs {{$post->no_of_bag}} bag(s) <span class="text-danger">{{$post->blood}}</span> 
-                                                                        blood by {{$post->donation_date}} - {{$post->donation_time}} in {{$post->location}}. If you can donate, please contact {{$post->contact_no}} ({{$post->relationship}}s).
+                                                                        blood by {{$post->donation_date}} - {{$post->donation_time}} in {{$post->location}}. managed {{$post->managed}} bag(s).  If you can donate, please contact {{$post->contact_no}} ({{$post->relationship}}s).
                                                                 </div>
                                                         </div>
+
+                                                        <div class="card-footer">
+                                                            <a class="btn h4 btn-lg btn-dark text-warning" href="{{route('make-a-donation',$post->id)}}">Make A Donation &raquo;</a>
+                                                        </div>
+
                                                 </header>
 
                                         </article>
 
                                 </div>
+                          @endif
                 @endif
         @endforeach
 
