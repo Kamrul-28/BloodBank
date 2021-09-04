@@ -11,6 +11,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,9 @@ Route::prefix('site')->group(function(){
       Route::get('/types', [MainController::class, 'types'])->name('types');
       Route::get('/vlunteers', [MainController::class, 'vlunteers'])->name('vlunteers');
 
+      Route::get('/search', [SearchController::class, 'index'])->name('search');
+      Route::post('/blood-search', [SearchController::class, 'bloodSearch'])->name('blood-search');
+      Route::post('/address-search', [SearchController::class, 'addressSearch'])->name('address-search');
 });
 
 Route::group(['prefix'=>'adm','middleware'=>'auth'],function(){
