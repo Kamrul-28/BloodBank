@@ -21,18 +21,38 @@
             <div class="form-input clear">
               <label class="one_half first my-2" for="author">Name<span class="required">*</span><br>
                 <input type="text" name="name" id="name" size="22" style="border: 1px dotted black">
+                @if ($errors->first('name'))
+                <div class="alert alert-danger" role="alert">
+                  {{ $errors->first('name') }}
+                </div>
+                @endif
               </label>
               <label class="one_half my-2" for="email">Email <span class="required">*</span><br>
                 <input type="text" name="email" id="email"  size="22" style="border: 1px dotted black">
+                @if ($errors->first('email'))
+                <div class="alert alert-danger" role="alert">
+                  {{ $errors->first('email') }}
+                </div>
+                @endif
               </label>
             </div>
             <div class="form-input clear">
               <label class="one_half first my-2" for="contact">Contact No<span class="required">*</span><br>
                 <input type="text" name="contact" id="contact"  size="22" style="border: 1px dotted black">
+                @if ($errors->first('contact'))
+                <div class="alert alert-danger" role="alert">
+                  {{ $errors->first('contact') }}
+                </div>
+                @endif
               </label>
             </div>
             <div class="form-message my-2">
               <textarea name="message" id="message" placeholder="Your Message" cols="25" rows="10" style="border: 1px dotted black"></textarea>
+              @if ($errors->first('message'))
+              <div class="alert alert-danger" role="alert">
+                {{ $errors->first('message') }}
+              </div>
+              @endif
             </div>
             
             <button class="btn btn-primary" type="submit" value="Submit">Submit</button>

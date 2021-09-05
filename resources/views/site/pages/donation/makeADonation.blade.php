@@ -38,10 +38,20 @@
                           <div class="one_third" for="blood">
                               <div class="py-3">Donation Date<span class="required">*</span><br></div>  
                               <input type="date" name="donation_date" id="donation_date" size="22" style="border: 1px dotted black">
+                              @if ($errors->first('donation_date'))
+                              <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('donation_date') }}
+                              </div>
+                              @endif
                           </div>
                         </div>                   
                         <div class="py-2">
                           <textarea name="description" id="description" placeholder="Description" cols="25" rows="10" style="border: 1px dotted black"></textarea>
+                            @if ($errors->first('description'))
+                            <div class="alert alert-danger" role="alert">
+                              {{ $errors->first('description') }}
+                            </div>
+                            @endif
                         </div>
                        
                           <button class="btn btn-primary" type="submit" value="Submit">Submit</button>

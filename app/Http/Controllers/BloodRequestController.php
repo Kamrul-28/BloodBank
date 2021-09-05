@@ -62,6 +62,23 @@ class BloodRequestController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=> 'required|min:3',
+            'email'=> 'required|email|unique:users',
+            'contact_no'=> 'required|numeric|min:11',
+            'password'=> 'required|min:8',
+            'desises'=> 'required',
+            'blood'=> 'required',
+            'no_of_bag'=> 'required|numeric',
+            'donation_date'=> 'required',
+            'donation_time'=> 'required',
+            'managed'=> 'required|numeric',
+            'message'=> 'required',
+            'relationship'=> 'required',
+            'location'=> 'required',
+
+
+        ]);
         $user=new User();
 
         $user->name=request('name');

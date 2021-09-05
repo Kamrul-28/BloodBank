@@ -43,6 +43,10 @@ class DonationController extends Controller
 
     public function addDonation(Request $request){
 
+        $request->validate([
+            'description'=>'required',
+            'donation_date'=>'required',
+        ]);
         $donor=Donor::find($request->user_id);
 
         $nextAvailableDate = new DateTime("+2 months");
