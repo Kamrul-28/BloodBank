@@ -20,6 +20,8 @@ Route::get('/', [MainController::class, 'index'])->name('homepage');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/showWarning', [DashboardController::class, 'show'])->name('showWarning');
+
 
 
 Route::prefix('site')->group(function(){
@@ -52,7 +54,7 @@ Route::prefix('site')->group(function(){
       Route::post('/address-search', [SearchController::class, 'addressSearch'])->name('address-search');
 });
 
-Route::group(['prefix'=>'adm','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'adm','middleware'=>['auth','admin']],function(){
       /* Routes for admin panel  */
       Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
      
