@@ -19,17 +19,30 @@
                             <div class="row">
                                 <div class="col-md-4 py-3">
                                         <h6>Name</h6>
-                                        <input type="text" name="name" class="form-control" required style="border: 1px dotted black">      
+                                        <input type="text" name="name" class="form-control" style="border: 1px dotted black">   
+                                        @if ($errors->first('name'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('name') }}
+                                        </div>
+                                        @endif   
                                 </div>
                                 <div class="col-md-4 py-2">
                                         <h6 class="my-2">Email</h6>
-                                        <input type="text" name="email" class="form-control" required style="border: 1px dotted black">
-                
+                                        <input type="text" name="email" class="form-control" style="border: 1px dotted black">
+                                        @if ($errors->first('email'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('email') }}
+                                        </div>
+                                        @endif
                                 </div>
                                 <div class="col-md-4 py-2">
                                         <h6 class="my-2">Password</h6>
-                                        <input type="password" name="password" class="form-control" required style="border: 1px dotted black">
-                
+                                        <input type="password" name="password" class="form-control" style="border: 1px dotted black">
+                                        @if ($errors->first('password'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('password') }}
+                                        </div>
+                                        @endif       
                                 </div>
                             </div>
 
@@ -45,52 +58,85 @@
                                                 @endforeach        
 
                                         </select>
+                                        @if ($errors->first('blood'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('blood') }}
+                                        </div>
+                                        @endif 
                 
                                 </div>
                                 <div class="col-md-4 py-3">
                                         <h6 class="my-2">Contact No</h6>
-                                        <input type="text" name="contact" class="form-control" required style="border: 1px dotted black">
-                
+                                        <input type="text" name="contact" class="form-control" style="border: 1px dotted black">
+                                        @if ($errors->first('contact'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('contact') }}
+                                        </div>
+                                        @endif
                                 </div>
                                 <div class="col-md-4 py-3">
                                         <h6 class="my-2">School Name</h6>
-                                        <input type="text" name="school" class="form-control" required style="border: 1px dotted black">
-                
+                                        <input type="text" name="school" class="form-control" style="border: 1px dotted black">
+                                        @if ($errors->first('school'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('school') }}
+                                        </div>
+                                        @endif
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4 py-3">
                                         <h6 class="my-2">Address</h6>
-                                        <input type="text" name="address" class="form-control" required style="border: 1px dotted black">
-                
+                                        <input type="text" name="address" class="form-control" style="border: 1px dotted black">
+                                        @if ($errors->first('address'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('address') }}
+                                        </div>
+                                        @endif
                                 </div>
                                 <div class="col-md-4 py-3">
                                         <h6 class="my-2">Date of Birth</h6>
-                                        <input type="date" name="date_of_birth" class="form-control" required style="border: 1px dotted black">
-                
+                                        <input type="date" name="date_of_birth" class="form-control" style="border: 1px dotted black">
+                                        @if ($errors->first('date_of_birth'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('date_of_birth') }}
+                                        </div>
+                                        @endif
                                 </div>
                                 <div class="col-md-4 py-3">
                                         <h6 class="my-2">height</h6>
-                                        <input type="text" name="height" class="form-control" required style="border: 1px dotted black">
-                
+                                        <input type="text" name="height" class="form-control" style="border: 1px dotted black">
+                                        @if ($errors->first('height'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('height') }}
+                                        </div>
+                                        @endif
                                 </div>
                             </div>
                             <div class="row">
                                     <div class="col-md-4 py-3">
                                         <h6 class="my-2">weight</h6>
-                                        <input type="text" name="weight" class="form-control" required style="border: 1px dotted black">
-                
+                                        <input type="text" name="weight" class="form-control" style="border: 1px dotted black">
+                                        @if ($errors->first('weight'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('weight') }}
+                                        </div>
+                                        @endif
                                     </div>
                                     <div class="col-md-8">
 
                                         <h6 class="mt-4">Gender</h6>                                
-                                        <input type="radio" name="gender" value="male" required>
+                                        <input type="radio" name="gender" value="male">
                                         <label for="gender">Male</label> 
-                                        <input type="radio" name="gender"  value="female" required>
+                                        <input type="radio" name="gender"  value="female">
                                         <label for="gender">Female</label> 
-                                        <input type="radio" name="gender"  value="others" required>
+                                        <input type="radio" name="gender"  value="others">
                                         <label for="gender">Others</label> 
-                
+                                        @if ($errors->first('gender'))
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ $errors->first('gender') }}
+                                        </div>
+                                        @endif
                                     </div>
                                     
                             </div>

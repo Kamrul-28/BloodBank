@@ -57,7 +57,24 @@ class DonorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
+
+        $request->validate([
+            'name'=> 'required|min:3',
+            'email'=> 'required|email|unique:users',
+            'contact'=> 'required|numeric|min:11',
+            'password'=> 'required|min:8',
+            'school'=> 'required',
+            'blood'=> 'required',
+            'height'=> 'required',
+            'weight'=> 'required',
+            'date_of_birth'=> 'required',
+            'gender'=> 'required',
+            'address'=> 'required',
+
+
+        ]);
+
         $user=new User();
 
         $user->name=request('name');
@@ -116,6 +133,22 @@ class DonorController extends Controller
 
     public function donorReg(Request $request)
     {
+        $request->validate([
+            'name'=> 'required|min:3',
+            'email'=> 'required|email|unique:users',
+            'contact'=> 'required|numeric|min:11',
+            'password'=> 'required|min:8',
+            'school'=> 'required',
+            'blood'=> 'required',
+            'height'=> 'required',
+            'weight'=> 'required',
+            'date_of_birth'=> 'required',
+            'gender'=> 'required',
+            'address'=> 'required',
+
+
+        ]);
+
         $user=new User();
 
         $user->name=request('name');
@@ -195,6 +228,22 @@ class DonorController extends Controller
      */
     public function update(Request $request, $id)
     {
+            $request->validate([
+                'name'=> 'required|min:3',
+                'email'=> 'required|email',
+                'contact'=> 'required|numeric|min:11',
+                'password'=> 'required|min:8',
+                'school'=> 'required',
+                'blood'=> 'required',
+                'height'=> 'required',
+                'weight'=> 'required',
+                'date_of_birth'=> 'required',
+                'gender'=> 'required',
+                'address'=> 'required',
+
+
+            ]);
+
             $donor=Donor::find($id);
     
             $donor_info=DonorInfo::find($donor->id);
