@@ -37,7 +37,14 @@
                                 <div class="col-md-4 py-3">
 
                                         <h6 class="my-2">Blood Group</h6>
-                                        <input type="text" name="blood" class="form-control" required style="border: 1px dotted black">
+                                        <select nput type="text" name="blood" class="form-control" style="border: 1px dotted black">
+                                               
+                                                <option selected disabled>----------Select One---------</option>                 
+                                                @foreach (bloodGroups() as $item)
+                                                <option value="{{$item}}">{{$item}}</option>
+                                                @endforeach        
+
+                                        </select>
                 
                                 </div>
                                 <div class="col-md-4 py-3">

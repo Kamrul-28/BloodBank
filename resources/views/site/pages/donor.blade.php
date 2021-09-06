@@ -8,7 +8,7 @@
     <div id="portfolio" class="three_quarter">
       <div class="row">
         @foreach ($data as $item)
-        <div class="col-md-4">
+        <div class="col-md-4  mt-3">
           <article class="clear">
             <figure class="post-image"><img src="../images/demo/1200x400.gif" alt=""></figure>
             <header>

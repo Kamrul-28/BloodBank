@@ -28,11 +28,18 @@
                     </div>
                     <div class="one_third" for="blood">
                         <div class="py-3">Blood Group<span class="required">*</span><br></div>  
-                        <input type="text" name="blood" id="blood" size="22" style="border: 1px dotted black">
+                        <select nput type="text" name="blood" class="form-control" style="border: 1px dotted black">
+                                               
+                            <option selected disabled>----------Select One---------</option>                 
+                            @foreach (bloodGroups() as $item)
+                            <option value="{{$item}}">{{$item}}</option>
+                            @endforeach        
+
+                        </select>
                         @if ($errors->first('blood'))
-                        <div class="alert alert-danger" role="alert">
-                          {{ $errors->first('blood') }}
-                        </div>
+                          <div class="alert alert-danger" role="alert">
+                            {{ $errors->first('blood') }}
+                          </div>
                         @endif
                     </div>
                     <div class="one_third" for="no_of_bag">

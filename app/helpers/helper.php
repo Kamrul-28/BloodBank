@@ -12,3 +12,10 @@ function isAdmin(){
       }
 }
 
+
+function bloodGroups(){
+      
+      $bloodGroups = array( "A+", "A-", "B+","B-","O+","O-","AB+","AB-");
+
+      return $bloodGroups;
+}

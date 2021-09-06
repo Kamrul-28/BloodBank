@@ -24,7 +24,7 @@ Route::get('/showWarning', [DashboardController::class, 'show'])->name('showWarn
 
 
 
-Route::prefix('site')->group(function(){
+Route::group(['prefix'=>'site'],function(){
 
       Route::get('/about', [AboutController::class, 'index'])->name('about');
       Route::get('/contact', [ContactController::class, 'index'])->name('contact');
