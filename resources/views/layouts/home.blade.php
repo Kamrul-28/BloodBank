@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('layout/styles/main.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{ asset('layout/styles/mediaqueries.css')}}" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ asset('css/styles.css" rel="stylesheet')}}" type="text/css" media="all">
+    <link href="{{ asset('css/styles.css')}}" rel="stylesheet" type="text/css" media="all">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

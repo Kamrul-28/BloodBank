@@ -116,7 +116,7 @@
                             <div class="row">
                                     <div class="col-md-4 py-3">
                                         <h6 class="my-2">weight</h6>
-                                        <input type="text" name="weight" class="form-control" style="border: 1px dotted black">
+                                        <input type="number" name="weight" class="form-control" style="border: 1px dotted black">
                                         @if ($errors->first('weight'))
                                         <div class="alert alert-danger" role="alert">
                                           {{ $errors->first('weight') }}

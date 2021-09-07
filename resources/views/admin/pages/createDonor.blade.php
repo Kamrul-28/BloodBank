@@ -29,7 +29,7 @@
                 <div class="col-md-12 px-5 card-body justify-content-center">
                     <form action="{{route('storeDonor')}}" method="post">
                             @csrf
-                            <div class="row">
+                            <div class="row my-4">
                                 <div class="col-md-4 my-2">
                                     <h6>Name</h6>
                                     <input type="text" name="name" class="form-control" style="border: 1px dotted black">  
@@ -58,7 +58,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row my-4">
                                 <div class="col-md-4">
                                     <h6 class="my-2">Blood Group</h6>
                                     <select nput type="text" name="blood" class="form-control" style="border: 1px dotted black">
@@ -94,7 +94,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row my-4">
                                     
                                 <div class="col-md-4">
                                     <h6 class="my-2">Address</h6>
@@ -126,11 +126,11 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row my-4">
                                 <div class="col-md-4">
                                 
                                     <h6 class="my-2">weight</h6>
-                                    <input type="text" name="weight" class="form-control" style="border: 1px dotted black">
+                                    <input type="number" name="weight" class="form-control" style="border: 1px dotted black">
                                     @if ($errors->first('weight'))
                                     <div class="alert alert-danger" role="alert">
                                     {{ $errors->first('weight') }}

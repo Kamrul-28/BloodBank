@@ -140,7 +140,6 @@ class DonorController extends Controller
             'password'=> 'required|min:8',
             'school'=> 'required',
             'blood'=> 'required',
-            'height'=> 'required',
             'weight'=> 'required',
             'date_of_birth'=> 'required',
             'gender'=> 'required',
@@ -184,7 +183,7 @@ class DonorController extends Controller
 
         if($res=='true')
         {                
-            return redirect('/site/become-a-hero')->with('success','You have Registered Successfully ! Please Login');
+            return redirect()->back()->with('success','You have Registered Successfully ! Please Login');
             
 
         }else{
