@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\PatientsController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,8 @@ Route::get('/showWarning', [DashboardController::class, 'show'])->name('showWarn
 
 
 Route::group(['prefix'=>'site'],function(){
+
+      Route::get('/register', [RegisterController::class, 'index'])->name('register-view');
 
       Route::get('/about', [AboutController::class, 'index'])->name('about');
       Route::get('/contact', [ContactController::class, 'index'])->name('contact');

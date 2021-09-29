@@ -36,19 +36,20 @@
                 @else
                 <li><a href="{{route('homepage')}}" title="Homepage">Homepage</a></li>
                 <li><a href="{{route('posted-requests')}}" title="Homepage">All Requests</a></li>
-                <li><a href="{{route('manage-blood')}}" class="nav-link title="manage-blood">Send Blood Request</a></li>
-                <li><a href="{{route('donor')}}" class="nav-link title="About Us">Donors</a></li>
-                <li><a href="{{route('contact')}}" class="nav-link title="About Us">Contact</a></li>
-                <li><a href="{{route('about')}}" class="nav-link title="About Us">About Us</a></li>
-                <li><a href="{{route('search')}}" class="nav-link title="About Us">Search</a></li>
-                    <li class="nav-item" title="Login">
-                        <a href="{{ route('login') }}" class="nav-link text-sm underline">Log in</a>
-                    </li>  
+                <li><a href="{{route('manage-blood')}}" class="nav-link" title="manage-blood">Send Blood Request</a></li>
+                <li><a href="{{route('donor')}}" class="nav-link" title="About Us">Donors</a></li>
+                <li><a href="{{route('contact')}}" class="nav-link" title="About Us">Contact</a></li>
+                <li><a href="{{route('about')}}" class="nav-link" title="About Us">About Us</a></li>
+                <li><a href="{{route('search')}}" class="nav-link" title="About Us">Search</a></li>
                 @if (Route::has('register'))
-                    <li class="nav-item" title="Register">  
-                        <a href="{{ route('become-a-hero') }}" class="nav-link text-sm underline">Become A Hero</a>
-                    </li>    
+                <li class="nav-item" title="Register">  
+                    <a href="{{ route('become-a-hero') }}" class="nav-link" text-sm underline">Become A Hero</a>
+                </li>    
                 @endif
+                <li class="nav-item" title="Login">
+                    <a href="{{ route('login') }}" class="nav-link" text-sm underline">Log in</a>
+                </li>  
+                <li><a href="{{route('register-view')}}" class="nav-link">Search</a></li>
               @endauth
           @endif 
        </ul>
