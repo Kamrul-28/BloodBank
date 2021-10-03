@@ -18,7 +18,6 @@ class CreateDonorsTable extends Migration
             $table->unsignedBigInteger('school_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('blood_group');
-            $table->decimal('height');
             $table->decimal('weight');
             $table->string('next_available_date')->nullable();
             $table->boolean('is_available')->default(false);

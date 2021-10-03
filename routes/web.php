@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BloodRequestController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomRegController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DonorController;
@@ -10,7 +11,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\PatientsController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +27,8 @@ Route::get('/showWarning', [DashboardController::class, 'show'])->name('showWarn
 
 Route::group(['prefix'=>'site'],function(){
 
-      Route::get('/register', [RegisterController::class, 'index'])->name('register-view');
+      Route::get('/register', [CustomRegController::class, 'index'])->name('register-view');
+      Route::post('/register-create', [CustomRegController::class, 'create'])->name('register-create');
 
       Route::get('/about', [AboutController::class, 'index'])->name('about');
       Route::get('/contact', [ContactController::class, 'index'])->name('contact');

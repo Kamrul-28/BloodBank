@@ -16,7 +16,10 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->string('blood_group');
             $table->string('desises');
+            $table->string('address');
+            $table->string('contact');
             $table->timestamps();
 
             $table->foreign('user_id')
