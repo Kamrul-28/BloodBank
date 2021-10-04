@@ -47,16 +47,6 @@
                   You are not Logged In. Please <a href="{{route('login')}}">Login</a> |  New <a href="{{route('register')}}">register</a>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="alert alert-danger">
-                  If your are a donor please <a href="{{route('login')}}">Login</a> as donor | new donor <a href="{{route('become-a-hero')}}">register</a> as donor
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="alert alert-danger">
-                  If your are a patient please <a href="{{route('login')}}">Login</a> as patient | new patient <a href="#">register</a> as donor
-                </div>
-              </div>
           </div>
         </div>
     @endif

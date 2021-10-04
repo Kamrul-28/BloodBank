@@ -116,15 +116,6 @@
                                     </div>
                                     @endif
                                 </div>
-                                <div class="col-md-4">
-                                    <h6 class="my-2">height</h6>
-                                    <input type="text" name="height" class="form-control" style="border: 1px dotted black">
-                                    @if ($errors->first('height'))
-                                    <div class="alert alert-danger" role="alert">
-                                    {{ $errors->first('height') }}
-                                    </div>
-                                    @endif
-                                </div>
                             </div>
                             <div class="row my-4">
                                 <div class="col-md-4">

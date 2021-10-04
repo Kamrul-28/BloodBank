@@ -133,7 +133,6 @@ class DonorController extends Controller
             'password'=> 'required|min:8',
             'school'=> 'required',
             'blood'=> 'required',
-            'height'=> 'required',
             'weight'=> 'required',
             'date_of_birth'=> 'required',
             'gender'=> 'required',
@@ -160,7 +159,6 @@ class DonorController extends Controller
         $donor->school_id=$school->id;
         $donor->user_id=$user->id;
         $donor->blood_group=request('blood');
-        $donor->height=request('height');
         $donor->weight=request('weight');
         $res=$donor->save();
 

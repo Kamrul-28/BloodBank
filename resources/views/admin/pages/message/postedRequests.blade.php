@@ -13,7 +13,7 @@
                                 <div class="card col-md-6 mb-5">
                                         <article class="clear">
                                                 <header>
-                                                        <div class="card-header bg-dark">
+                                                        <div class="card-header" id="nav_background">
                                                                 <h2><a class=" text-warning"  href="#"> {{$post->location}} <span class="text-danger">({{$post->blood}})</span></a></h2>
                                                         </div>
                                                         <div class="card-body" style="font-family: CaviarDreamsBold">
@@ -27,7 +27,7 @@
                                                         </div>
 
                                                         <div class="card-footer">
-                                                            <a class="btn h4 btn-lg btn-dark text-warning" href="{{route('make-a-donation',$post->id)}}">Make A Donation &raquo;</a>
+                                                            <a class="btn h4 btn-lg btn-primary text-warning" href="{{route('make-a-donation',$post->id)}}">Make A Donation &raquo;</a>
                                                         </div>
 
                                                 </header>

@@ -31,13 +31,10 @@ class DonationController extends Controller
 
     public function makeADonation($id){
 
-        $patient=Patients::join('users','patients.user_id','=','users.id')
-        ->join('blood_requests','blood_requests.patient_id','=','patients.id')
-        ->select('patients.*','users.*','blood_requests.*')
-        ->where('patients.id','=',$id)
-        ->get();    
+        $bloodRequest=BloodRequest::find($id); 
+        $donorInfo=Donor::where('user_id',auth()->user()->id)->get();   
 
-        return view('site.pages.donation.makeADonation',compact('patient'));
+        return view('site.pages.donation.makeADonation',compact('bloodRequest','donorInfo'));
     }
 
 
@@ -47,7 +44,8 @@ class DonationController extends Controller
             'description'=>'required',
             'donation_date'=>'required',
         ]);
-        $donor=Donor::find($request->user_id);
+         
+        $donor=Donor::where('user_id','=',$request->user_id)->first();
 
         $nextAvailableDate = new DateTime("+2 months");
         

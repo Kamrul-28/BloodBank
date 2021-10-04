@@ -12,8 +12,8 @@
              <p>Across Bangladesh, every day there remains an urgent need for all types of blood groups. Especially donors with rare blood groups such as O Negative, B Negative and A Negative are in high demand. Your timely response is essential to the supply of healthy blood for the massive daily demand we face.</p>
              <p>Your donation can save the lives of many, make a difference or simply make you feel great about your contribution to humanity. Whatever your reason, whatever your motivation we welcome you to learn more about eligibility and benefits of donating blood</p>
              <p>Every year, Bangladesh needs around 10 to 12 lakh bags of blood, according to DGHS.</p>
-             <a href="#" class="button large gradient orange">Read More &raquo;</a></div>
-           <div class="two_fifth"><a href="#"><img src="images/site/blood-3.jpg" alt=""></a></div>
+             <a href="{{route('about')}}" class="btn gradient btn-primary">Read More &raquo;</a></div>
+           <div class="two_fifth"><a href="{{route('about')}}"><img src="images/site/blood-3.jpg" alt=""></a></div>
          </div>
          <div id="tab-3" class="tab-content clear">
            <h2>Team Members</h2>
@@ -24,7 +24,6 @@
                    <p class="team-name">Md.Kamrul Hasan</p>
                    <p class="team-title">Student Id:170228</p>
                    <p class="team-description">Computer Science and Engineering <br> Discipline Khulna University <br> Khulna</p>
-                   <p class="read-more"><a href="#">Read More &raquo;</a></p>
                  </figcaption>
                </figure>
              </li>

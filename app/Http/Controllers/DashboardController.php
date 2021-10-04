@@ -2,6 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BloodRequest;
+use App\Models\Contact;
+use App\Models\Donation;
+use App\Models\Donor;
+use App\Models\Patients;
+use App\Models\School;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +20,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view("admin.dashboard");
+        $donor=Donor::all();
+        $availableDonor=Donor::where('is_available','=',false)->get();
+        $school=School::all();
+        $bloodRequest=BloodRequest::all();
+        $donations=Donation::all();
+        $contact=Contact::all();
+        $patient=Patients::all();
+        $user=User::all();
+
+
+        return view("admin.dashboard",compact(['donor','school','bloodRequest','donations','contact','patient','user','availableDonor']));
     }
 
     /**
