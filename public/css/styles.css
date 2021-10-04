@@ -1,3 +1,21 @@
 .createDonor{
      margin-left: 10%;
 }
+/* jumbotron */
+
+#Jumbo_background{
+     background: url('../images/site/back.PNG');
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+/* navigation */
+#nav_background{
+     background: url('../images/site/back.PNG');
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+#topnav ul li a{
+     color: white;
+}

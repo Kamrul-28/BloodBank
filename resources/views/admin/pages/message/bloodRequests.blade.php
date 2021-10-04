@@ -27,7 +27,6 @@
                     <table id="datatablesSimple" style="border: 1px black">
                         <thead>
                             <tr>
-                                <th>Name</th>
                                 <th>Blood Group</th>
                                 <th>Contact No</th>
                                 <th>Donation Date</th>
@@ -44,7 +43,6 @@
                         <tbody>
                             @foreach($message as $values)
                             <tr>
-                                <td>{{$values->name}}</td>
                                 <td>{{$values->blood}}</td>                      
                                 <td>{{$values->contact_no}}</td>    
                                 <td>{{$values->donation_date}}</td>    

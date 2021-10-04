@@ -7,6 +7,7 @@ use App\Models\DonorInfo;
 use App\Models\School;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class DonorController extends Controller
@@ -50,6 +51,72 @@ class DonorController extends Controller
         return view('admin.pages.createDonor');
     }
 
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function userToDonor(Request $request)
+    {
+        $request->validate([
+
+            'contact'=> 'required|numeric|min:11',
+            'school'=> 'required',
+            'blood'=> 'required',
+            'weight'=> 'required',
+            'date_of_birth'=> 'required',
+            'gender'=> 'required',
+            'address'=> 'required',
+
+
+        ]);
+        
+        $user = User::find(Auth::user()->id);
+
+        $donor=new Donor();
+
+        $donor_info=new DonorInfo();
+
+        $school=new School();
+
+        $school->school_name=request('school');
+        $res=$school->save();
+
+
+        $user->role='donor';
+        $user->save();
+
+
+
+        $donor->school_id=$school->id;
+        $donor->user_id=$user->id;
+        $donor->blood_group=request('blood');
+        $donor->weight=request('weight');
+        $res=$donor->save();
+
+
+        $donor_info->donor_id=$donor->id;
+        $donor_info->date_of_birth=request('date_of_birth');
+        $donor_info->address=request('address');
+        $donor_info->contact_no=request('contact');
+        $donor_info->gender=request('gender');
+        $res=$donor_info->save();
+
+
+
+        if($res=='true')
+        {                
+            return redirect()->back()->with('success','You are now a donor!');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
+
+    }
+    
     /**
      * Store a newly created resource in storage.
      *

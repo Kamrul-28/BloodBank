@@ -38,6 +38,7 @@ Route::group(['prefix'=>'site'],function(){
       Route::post('/contactUs', [ContactController::class, 'store'])->name('contactUs');
       Route::get('/become-a-hero', [DonorController::class, 'show'])->name('become-a-hero');
       Route::post('/donorReg', [DonorController::class, 'donorReg'])->name('donorReg');
+      Route::post('/userToDonor', [DonorController::class, 'userToDonor'])->name('userToDonor');
 
       Route::post('/blood-request', [BloodRequestController::class, 'store'])->name('blood-request');
 

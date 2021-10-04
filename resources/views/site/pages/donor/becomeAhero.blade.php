@@ -13,22 +13,24 @@
         
                 </div>
                 @endif
-                <form action="{{route('donorReg')}}" method="post">
+                <form action="{{route('userToDonor')}}" method="post">
                         @csrf
                     <div class="mx-5">
+                            <input type="hidden" name="id" value="{{auth()->user()->id}}">
                             <div class="row">
                                 <div class="col-md-4 py-3">
                                         <h6>Name</h6>
-                                        <input type="text" name="name" class="form-control" style="border: 1px dotted black">   
+                                        <input type="text" name="name" class="form-control" style="border: 1px dotted black" value="{{auth()->user()->name}}" disabled>   
                                         @if ($errors->first('name'))
                                         <div class="alert alert-danger" role="alert">
                                           {{ $errors->first('name') }}
                                         </div>
                                         @endif   
                                 </div>
+
                                 <div class="col-md-4 py-2">
                                         <h6 class="my-2">Email</h6>
-                                        <input type="text" name="email" class="form-control" style="border: 1px dotted black">
+                                        <input type="text" name="email" class="form-control" style="border: 1px dotted black" value="{{auth()->user()->email}}" disabled>
                                         @if ($errors->first('email'))
                                         <div class="alert alert-danger" role="alert">
                                           {{ $errors->first('email') }}
@@ -36,34 +38,34 @@
                                         @endif
                                 </div>
                                 <div class="col-md-4 py-2">
-                                        <h6 class="my-2">Password</h6>
-                                        <input type="password" name="password" class="form-control" style="border: 1px dotted black">
-                                        @if ($errors->first('password'))
-                                        <div class="alert alert-danger" role="alert">
-                                          {{ $errors->first('password') }}
-                                        </div>
-                                        @endif       
+
+                                  <h6 class="my-2">Blood Group</h6>
+                                  <select nput type="text" name="blood" class="form-control" style="border: 1px dotted black">
+                                         
+                                          <option selected disabled>----------Select One---------</option>                 
+                                          @foreach (bloodGroups() as $item)
+                                          <option value="{{$item}}">{{$item}}</option>
+                                          @endforeach        
+
+                                  </select>
+                                  @if ($errors->first('blood'))
+                                  <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('blood') }}
+                                  </div>
+                                  @endif 
+          
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-4 py-3">
-
-                                        <h6 class="my-2">Blood Group</h6>
-                                        <select nput type="text" name="blood" class="form-control" style="border: 1px dotted black">
-                                               
-                                                <option selected disabled>----------Select One---------</option>                 
-                                                @foreach (bloodGroups() as $item)
-                                                <option value="{{$item}}">{{$item}}</option>
-                                                @endforeach        
-
-                                        </select>
-                                        @if ($errors->first('blood'))
-                                        <div class="alert alert-danger" role="alert">
-                                          {{ $errors->first('blood') }}
-                                        </div>
-                                        @endif 
-                
+                                    <h6 class="my-2">weight</h6>
+                                    <input type="number" name="weight" class="form-control" style="border: 1px dotted black">
+                                    @if ($errors->first('weight'))
+                                    <div class="alert alert-danger" role="alert">
+                                      {{ $errors->first('weight') }}
+                                    </div>
+                                    @endif
                                 </div>
                                 <div class="col-md-4 py-3">
                                         <h6 class="my-2">Contact No</h6>
@@ -103,42 +105,21 @@
                                         </div>
                                         @endif
                                 </div>
-                                <div class="col-md-4 py-3">
-                                        <h6 class="my-2">height</h6>
-                                        <input type="text" name="height" class="form-control" style="border: 1px dotted black">
-                                        @if ($errors->first('height'))
-                                        <div class="alert alert-danger" role="alert">
-                                          {{ $errors->first('height') }}
-                                        </div>
-                                        @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                    <div class="col-md-4 py-3">
-                                        <h6 class="my-2">weight</h6>
-                                        <input type="number" name="weight" class="form-control" style="border: 1px dotted black">
-                                        @if ($errors->first('weight'))
-                                        <div class="alert alert-danger" role="alert">
-                                          {{ $errors->first('weight') }}
-                                        </div>
-                                        @endif
-                                    </div>
-                                    <div class="col-md-8">
+                                <div class="col-md-4 py-1">
 
-                                        <h6 class="mt-4">Gender</h6>                                
-                                        <input type="radio" name="gender" value="male">
-                                        <label for="gender">Male</label> 
-                                        <input type="radio" name="gender"  value="female">
-                                        <label for="gender">Female</label> 
-                                        <input type="radio" name="gender"  value="others">
-                                        <label for="gender">Others</label> 
-                                        @if ($errors->first('gender'))
-                                        <div class="alert alert-danger" role="alert">
-                                          {{ $errors->first('gender') }}
-                                        </div>
-                                        @endif
-                                    </div>
-                                    
+                                  <h6 class="mt-4">Gender</h6>                                
+                                  <input type="radio" name="gender" value="male">
+                                  <label for="gender">Male</label> 
+                                  <input type="radio" name="gender"  value="female">
+                                  <label for="gender">Female</label> 
+                                  <input type="radio" name="gender"  value="others">
+                                  <label for="gender">Others</label> 
+                                  @if ($errors->first('gender'))
+                                  <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('gender') }}
+                                  </div>
+                                  @endif
+                              </div>
                             </div>
 
                     </div>
