@@ -70,7 +70,7 @@
                                         {{ $patient->count() }}
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{route('all-schools')}}">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('all-patients')}}">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                         {{ $user->count() }}
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{route('all-requests')}}">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('dashboard')}}">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                         
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{route('all-donors')}}">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('message-contact')}}">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

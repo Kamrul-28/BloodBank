@@ -7,18 +7,18 @@
     <!-- ################################################################################################ -->
       <section>
         <h1>Address Search Result</h1>
-        <table>
-          <thead>
-            <tr>
-                  <th>Name</th>
-                  <th>Blood Group</th>
-                  <th>Contact No</th>
-                  <th>Email</th>
-                  <th>Address</th>  
-                  <th>Gender</th> 
-                  <th>Availibelity</th> 
-            </tr>
-          </thead>
+        <table class="table">
+         
+          <tr>
+                <th>Name</th>
+                <th>Blood Group</th>
+                <th>Contact No</th>
+                <th>Email</th>
+                <th>Address</th>  
+                <th>Gender</th> 
+                <th>Availibelity</th> 
+          </tr>
+          
           <tbody>
             @foreach($searchAddress as $value)
             <tr>

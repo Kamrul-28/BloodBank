@@ -46,7 +46,7 @@
                       <div class="form-input clear">
                         <div for="address"> 
                             <div class="py-3">Search by Address <span class="required">*</span><br></div>  
-                            <input class="form-control" type="text" name="address" id="address" size="22" style="border: 1px dotted black">
+                            <input class="form-control" type="text" name="searchAddress" id="address" size="22" style="border: 1px dotted black" placeholder="Address">
                             @if ($errors->first('address'))
                             <div class="alert alert-danger" role="alert">
                               {{ $errors->first('address') }}

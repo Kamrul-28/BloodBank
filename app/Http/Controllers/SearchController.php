@@ -36,7 +36,7 @@ class SearchController extends Controller
     public function addressSearch(Request $request)
     {
         $request->validate([
-            'address' => 'required'
+            'searchAddress' => 'required'
         ]);
 
         $req=request('searchAddress');
@@ -46,6 +46,7 @@ class SearchController extends Controller
                             ->select('users.*','donor_infos.*','donors.*')
                             ->where('donor_infos.address','like',"%{$req}%")
                             ->get();
+
         
         return view('site.pages.search.addressSearchResult',compact(['searchAddress']));
     }
