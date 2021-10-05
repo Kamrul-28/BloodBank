@@ -18,8 +18,7 @@ class PatientsController extends Controller
     public function index()
     {
         $data=User::join('patients','patients.user_id','=','users.id')
-        ->join('blood_requests','blood_requests.patient_id','=','patients.id')
-        ->select('patients.*','users.*','blood_requests.*')
+        ->select('patients.*','users.*')
         ->get();
 
         return view('admin.pages.patient.patient',compact('data'));
@@ -32,7 +31,7 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.patient.createPatient');
     }
 
     /**
@@ -43,7 +42,36 @@ class PatientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patient=new Patients();
+
+        $user=new User();
+
+
+        $user->name=request('name');
+        $user->email=request('email');
+        $user->password=Hash::make(request('password'));
+        $user->role='patient';
+        $user->save();
+
+        $patient->user_id=$user->id;
+        $patient->desises=request('desises');
+        $patient->blood_group=request('blood');
+        $patient->address=request('address');
+        $patient->contact=request('contact');
+        $res=$patient->save();
+
+
+
+        if($res=='true')
+        {                
+            return redirect('/adm/all-patients')->with('success','Patient Updated Successfully');
+            
+
+        }else{
+
+            return redirect()->back()->with('danger','Something went wrong');
+
+        }
     }
 
     /**
@@ -66,9 +94,8 @@ class PatientsController extends Controller
     public function edit($id)
     {
         $data=User::join('patients','patients.user_id','=','users.id')
-        ->join('blood_requests','blood_requests.patient_id','=','patients.id')
-        ->select('patients.*','users.*','blood_requests.*')
-        ->where('patients.id','=',$id)
+        ->select('patients.*','users.*')
+        ->where('users.id','=',$id)
         ->get();
 
         return view('admin.pages.patient.editPatient',compact('data'));
@@ -83,11 +110,10 @@ class PatientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $patient=Patients::find($id);
+        $patient=Patients::where('user_id','=',$id)->first();
 
         $user=User::find($patient->user_id);
 
-        $bloodRequest = BloodRequest::find($patient->id);
 
         $user->name=request('name');
         $user->email=request('email');
@@ -97,26 +123,16 @@ class PatientsController extends Controller
 
         $patient->user_id=$user->id;
         $patient->desises=request('desises');
-        $patient->save();
-
-        $bloodRequest->patient_id=$patient->id;
-        $bloodRequest->name=request('name');
-        $bloodRequest->blood=request('blood');
-        $bloodRequest->no_of_bag=request('no_of_bag');
-        $bloodRequest->donation_date=request('donation_date');
-        $bloodRequest->donation_time=request('donation_time');
-        $bloodRequest->managed=request('managed');
-        $bloodRequest->location=request('location');
-        $bloodRequest->contact_no=request('contact_no');
-        $bloodRequest->relationship=request('relationship');
-        $bloodRequest->message=request('message');
-        $res=$bloodRequest->save();
+        $patient->blood_group=request('blood');
+        $patient->address=request('location');
+        $patient->contact=request('contact_no');
+        $res=$patient->save();
 
 
 
         if($res=='true')
         {                
-            return redirect('/all-patients')->with('success','Patient Updated Successfully');
+            return redirect('/adm/all-patients')->with('success','Patient Updated Successfully');
             
 
         }else{
@@ -133,10 +149,8 @@ class PatientsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $data=Patients::find($id);      
-        $user_id=$data->user_id;
-        $user=User::find($user_id);
+    {     
+        $user=User::find($id);
         
         if($user)
             {  

@@ -94,10 +94,12 @@ Route::group(['prefix'=>'adm','middleware'=>['auth','admin']],function(){
 
 
       Route::get('/all-patients', [PatientsController::class, 'index'])->name('all-patients');
+      Route::get('/createPatient', [PatientsController::class, 'create'])->name('createPatient');
+      Route::post('/storePatient', [PatientsController::class,'store'])->name('storePatient');
       Route::get('/editPatient/{id}', [PatientsController::class, 'edit'])->name('editPatient');
       Route::get('/deletePatient/{id}', [PatientsController::class, 'destroy'])->name('deletePatient');
       Route::post('/updatePatient/{id}', [PatientsController::class, 'update'])->name('updatePatient');
-
+      
 });
 
 

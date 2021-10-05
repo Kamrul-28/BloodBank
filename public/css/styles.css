@@ -3,8 +3,8 @@
 }
 /* jumbotron */
 
-#Jumbo_background{
-     background: url('../images/site/back.PNG');
+#header_background{
+     background: url('../images/site/blood-7.PNG');
      background-repeat: no-repeat;
      background-size: cover;
 }

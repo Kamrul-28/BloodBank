@@ -13,7 +13,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div>
-                        <a href="{{route('manage-blood')}}" class="btn btn-primary mb-3"> Add New Patient</a>
+                        <a href="{{route('createPatient')}}" class="btn btn-primary mb-3"> Add New Patient</a>
                     </div>
 
                     @if(Session::has('success'))
@@ -33,6 +33,7 @@
                                     <th>Blood Group</th>
                                     <th>Contact No</th>
                                     <th>Diseases</th>
+                                    <th>Address</th>
                                     <th>Recovary Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -44,9 +45,10 @@
                             <tr>
                                 <td>{{$values->name}}</td>
                                 <td>{{$values->email}}</td> 
-                                <td>{{$values->blood}}</td>
-                                <td>{{$values->contact_no}}</td>    
+                                <td>{{$values->blood_group}}</td>
+                                <td>{{$values->contact}}</td>    
                                 <td>{{$values->desises}}</td> 
+                                <td>{{$values->address}}</td> 
                                 <td>Recovered</td>
                                 <td>
                                         <a href="{{route('editPatient',$values->id) }}" class="btn btn-success">Edit</a>
