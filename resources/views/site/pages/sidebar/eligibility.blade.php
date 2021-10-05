@@ -7,7 +7,7 @@
           <ul class="clear">
             <li>
               <article class="clear">
-                <img src="../images/site/blood-7.jpeg" alt="">
+                <img class="mb-5" src="../images/site/web_banner02.jpg" alt="">
                 <header>
                   <h2 class="blog-post-title"><a href="#">Requirements by Donation Type</a></h2>
                 </header>

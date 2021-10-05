@@ -105,7 +105,7 @@ class SchoolController extends Controller
 
             if($res=='true')
             {                
-                return redirect('/all-schools')->with('success','School Edited Successfully !');
+                return redirect('/adm/all-schools')->with('success','School Edited Successfully !');
                 
 
             }else{

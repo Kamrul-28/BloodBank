@@ -4,7 +4,7 @@
 
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
+                    <div class="container-fluid p-5">
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
@@ -106,7 +106,7 @@
                         <div class="card my-4">
                             <div class="card-header h3">
                                 <i class="fas fa-table me-1"></i>
-                                Blood Status
+                                Available Blood List
                             </div>
                             @php
                             $a=0; $aa=0; $b=0; $bb=0; $o=0; $oo=0; $ab=0; $aabb=0;
@@ -156,9 +156,9 @@
                             @endforeach
 
                             <div class="card-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr class="h5 text-danger">
+                                <table class="table table-bordered text-center">
+                                    <thead class="bg-secondary">
+                                        <tr class="h5 text-white">
                                             <th>A+</th>
                                             <th>B+</th>
                                             <th>O+</th>
