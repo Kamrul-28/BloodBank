@@ -138,8 +138,8 @@ nav ul{margin:0; padding:0; list-style:none;}
 
 /* Top navigation for smaller resolutions */
 
-#topnav form{display:block; height:30px; margin:0 auto; padding:20px 0;}
-#topnav form select{display:block; width:100%; padding:8px; color:#FFFFFF; background-color:#232323; border:1px solid #494949; cursor:pointer; outline:none;}
+#topnav form{display:block; height:30px; margin:0 auto; padding:20px 0 60px 0;}
+#topnav form select{display:block; width:100%; padding:8px; color:#FFFFFF; background-color:#18778f; border:1px solid #494949; cursor:pointer; outline:none;}
 #topnav form select option{display:block; margin:10px; padding:0; cursor:pointer; outline:none; border:none;}
 
 /* Sidebar Navigation */
