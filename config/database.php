@@ -73,6 +73,7 @@ return [
             'username' => isset($DATABASE_URL['user']) ? $DATABASE_URL['user'] :null,
             'password' => isset($DATABASE_URL['password']) ? $DATABASE_URL['password'] :null,
             'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
