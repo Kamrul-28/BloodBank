@@ -30,15 +30,6 @@
                     </figcaption>
                   </figure>
                 </li>
-                <li class="one_quarter">
-                  <figure class="team-member"><img src="/admin/images/imran.jpg" alt="">
-                    <figcaption>
-                      <p class="team-name">Mridha Imran Kabir</p>
-                      <p class="team-title">Student Id:180202</p>
-                      <p class="team-description">Computer Science and Engineering <br> Discipline Khulna University <br> Khulna</p>
-                    </figcaption>
-                  </figure>
-                </li>
               </ul>
             </div>
             
