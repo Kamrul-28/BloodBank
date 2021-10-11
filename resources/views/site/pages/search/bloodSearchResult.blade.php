@@ -7,8 +7,7 @@
     <!-- ################################################################################################ -->
       <section>
         <h1>Blood Search Result</h1>
-        <table>
-          <thead>
+        <table class="table">
             <tr>
                   <th>Name</th>
                   <th>Blood Group</th>
@@ -18,7 +17,6 @@
                   <th>Gender</th> 
                   <th>Availibelity</th> 
             </tr>
-          </thead>
           <tbody>
             @foreach($bloodSearch as $value)
             <tr>

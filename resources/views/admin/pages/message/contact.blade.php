@@ -5,10 +5,10 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Donors</h1>
+            <h1 class="mt-4">Contact Messages</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a class="link-dark" href="{{route('dashboard')}}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Donors</li>
+                <li class="breadcrumb-item active">Contact Messages</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">

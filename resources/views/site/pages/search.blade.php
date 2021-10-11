@@ -3,9 +3,8 @@
 <div class="wrapper row3">
   <div id="container">
         @include('site.pages.donor.side-nav')
-     <div class="row" style="margin-left: 30%">
-         <h2 class="pb-4">Search</h2>
-        
+     <div class="row">
+         <h2 class="pb-4">Search</h2>    
         <div id="respond" class="col-md-4">
 
             
